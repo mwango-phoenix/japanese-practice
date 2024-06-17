@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Box, Typography, Tab, Tabs } from '@mui/material';
 import HiraganaPractice from './hiragana';
 import TranslationPractice from './phrasePractices';
+import FrequencyPractice from './frequency';
 
 const App: React.FC = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -64,6 +65,17 @@ const App: React.FC = () => {
                             borderRadius: '8px 8px 0 0',
                         }}
                     />
+                    <Tab
+                        label="Frequency Phrases"
+                        component={Link}
+                        to="/frequency"
+                        sx={{
+                            color: 'white',
+                            backgroundColor: activeTab === 1 ? '#1f2937' : '#4a5568',
+                            padding: '10px 20px',
+                            borderRadius: '8px 8px 0 0',
+                        }}
+                    />
                 </Tabs>
                 <Box
                     sx={{
@@ -80,6 +92,7 @@ const App: React.FC = () => {
                     <Routes>
                         <Route path="/" element={<HiraganaPractice />} />
                         <Route path="/translation-practice" element={<TranslationPractice />} />
+                        <Route path="/frequency" element={<FrequencyPractice />} />
                     </Routes>
                 </Box>
             </Box>
